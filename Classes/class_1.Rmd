@@ -1,0 +1,44 @@
+---
+title: "First Class"
+output: html_notebook
+---
+
+## Packages
+```{r}
+library(tidyverse)
+library(magrittr)
+```
+
+
+## Importing dataset from txt
+
+```{r}
+setwd("~/Insync/leonardogloria@uenf.br/Google Drive/MENTORIA_R/Andres_R_class/R_class/Data")
+datasett <- read.table("dataset.txt", h = T,row.names=NULL,fill=T)
+```
+
+## Rename columns
+```{r}
+head(datasett) # first 6 lines with all columns
+
+datasett %>%
+  select(-DIM) %>% 
+  rename(farm=ID_FAZENDA, animal=BRINCO, season=EPOCA_PARTO,MY=Y,DIM=X) %>% 
+  arrange(animal) %>% 
+  mutate(CG=paste0(NP,NL))
+```
+
+
+
+## dplyr basics
+
+CG=paste(dadosn$NP,dadosn$NL,sep="")
+dadosn=data.frame(dadosn,ngc)
+
+dadosn <- dadosn[order(ngc),]
+
+dadosg=groupedData(Y~X|BRINCO,dadosn)
+dadosg$ngc=factor(dadosn$ngc)
+
+
+
