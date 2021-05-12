@@ -14,31 +14,45 @@ library(magrittr)
 
 ```{r}
 setwd("~/Insync/leonardogloria@uenf.br/Google Drive/MENTORIA_R/Andres_R_class/R_class/Data")
-datasett <- read.table("dataset.txt", h = T,row.names=NULL,fill=T)
+datasett <- read.table("dataset.txt", h = T)
+
+head(datasett)
+```
+
+## Deleting columns
+
+```{r}
+datasett %>%
+  select(-DIM)
 ```
 
 ## Rename columns
-```{r}
-head(datasett) # first 6 lines with all columns
 
-datasett %>%
-  select(-DIM) %>% 
-  rename(farm=ID_FAZENDA, animal=BRINCO, season=EPOCA_PARTO,MY=Y,DIM=X) %>% 
-  arrange(animal) %>% 
-  mutate(CG=paste0(NP,NL))
+```{r}
+datasett %<>%
+  rename(farm=ID_FAZENDA, animal=BRINCO, season=EPOCA_PARTO,MY=Y,DIM=X)
+
 ```
 
+## sorting dataset
 
+```{r}
+datasett %<>%
+  arrange(animal)
 
-## dplyr basics
+```
 
-CG=paste(dadosn$NP,dadosn$NL,sep="")
-dadosn=data.frame(dadosn,ngc)
+## Creating columns 
 
-dadosn <- dadosn[order(ngc),]
+```{r}
+datasett %<>%
+  mutate(CG=paste0(NP,NL)) 
+```
 
-dadosg=groupedData(Y~X|BRINCO,dadosn)
-dadosg$ngc=factor(dadosn$ngc)
+## Creating new dataset from another dataset
 
-
+```{r}
+dataset2 <- datasett %>%
+  select(animal,DIM,CG,MY)
+```
 
