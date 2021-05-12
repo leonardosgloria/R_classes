@@ -62,6 +62,7 @@ dataset2 %>%
   group_by(CG) %>%
   summarise(`Mean` = mean(MY), `SD` = sd(MY))
 ```
+
 ## All descriptive analysis
 
 ```{r}
@@ -69,5 +70,12 @@ descript <- dataset2 %>%
   select(CG,MY) %>% 
   dplyr::group_by(CG) %>%
   rstatix::get_summary_stats(type="full", show=c("n","mean","sd", "min","max"))
+```
+
+## Data visualization
+```{r}
+ggplot(data = dataset2) + 
+  geom_point(mapping = aes(x = DIM, y = MY,color=CG))
+
 ```
 
