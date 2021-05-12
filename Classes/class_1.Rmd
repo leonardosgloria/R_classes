@@ -63,6 +63,7 @@ dataset2 %>%
   summarise(`Mean` = mean(MY), `SD` = sd(MY))
 ```
 ## All descriptive analysis
+
 ```{r}
 descript <- dataset2 %>%
   select(CG,MY) %>% 
