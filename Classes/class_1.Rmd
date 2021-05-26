@@ -75,7 +75,8 @@ descript <- dataset2 %>%
 ## Data visualization
 ```{r}
 ggplot(data = dataset2) + 
-  geom_point(mapping = aes(x = DIM, y = MY,color=CG))
+  geom_point(mapping = aes(x = DIM, y = MY,color=CG))+
+  facet_wrap(~ CG, nrow = 2)
 
 ```
 
