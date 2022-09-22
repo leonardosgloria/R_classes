@@ -17,7 +17,6 @@ library(magrittr)
 ```{r}
 setwd("~/Insync/leonardogloria@uenf.br/Google Drive/MENTORIA_R/Andres_R_class/R_class/Data")
 datasett <- read.table("dataset.txt", h = T)
-
 head(datasett)
 ```
 
