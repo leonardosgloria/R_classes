@@ -8,6 +8,7 @@ editor_options:
 ## Packages
 ```{r}
 library(tidyverse)
+
 library(magrittr)
 ```
 
@@ -18,6 +19,7 @@ library(magrittr)
 setwd("~/Insync/leonardogloria@uenf.br/Google Drive/MENTORIA_R/Andres_R_class/R_class/Data")
 datasett <- read.table("dataset.txt", h = T)
 head(datasett)
+
 ```
 
 ## Deleting columns
