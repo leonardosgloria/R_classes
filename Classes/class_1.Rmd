@@ -8,7 +8,6 @@ editor_options:
 ## Packages
 ```{r}
 library(tidyverse)
-
 library(magrittr)
 ```
 
